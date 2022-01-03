@@ -1,18 +1,16 @@
 from operator import add, sub
 
-
 def a_plus_abs_b(a, b):
     """Return a+abs(b), but without calling abs.
-
     >>> a_plus_abs_b(2, 3)
     5
     >>> a_plus_abs_b(2, -3)
     5
     """
     if b < 0:
-        f = a - b
+        f = sub
     else:
-        f = a + b
+        f = add
     return f(a, b)
 
 
@@ -29,7 +27,7 @@ def two_of_three(a, b, c):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return a * a + b * b + c * c - min(a, b, c) * min(a, b, c)
+    return a * a + b * b + c * c - min(a, b, c) ** 2
     # 1st = sorted([a, b, c])[-2:]
     # res = 0
     # for i in 1st:
@@ -37,7 +35,6 @@ def two_of_three(a, b, c):
     # return res
 
 
-# !
 def largest_factor(n):
     """Return the largest factor of n that is smaller than n.
 
@@ -48,8 +45,9 @@ def largest_factor(n):
     >>> largest_factor(13) # factor is 1 since 13 is prime
     1
     """
+
     i = 1
-    while i <= n ** (1 / 2):  # 10 ** 1/2 = 5.0; 10 ** (1/2) == 3.16...
+    while i <= n ** (1 / 2):  # 10 * 1/2 = 5.0; 10 ** (1/2) == 3.16...
         i += 1
         if not n % i:
             return n // i
@@ -63,7 +61,7 @@ def largest_factor(n):
 时上述的三个函数都被先行计算了。
     接下来需要考虑如何实现题目中的要求。有一点可以肯定，即 true_func() 和 false_func() 都不能是 pure function，否则的话由于 pure function
 没有 side effect 的特性，with_if_statement() 和 with_if_function() 的实际外部表现并不会有所不同。"""
-# if statement只能返回函数t()的返回值， 而if function 可以返回t()的同时，运行t()的内容(莫名觉厉！！！)
+# with_if_statement只能返回函数f()的返回值， 而with_if_function 可以返回f()的同时，运行t()的内容(莫名觉厉！！！)
 
 
 def if_function(condition, true_result, false_result):
@@ -116,12 +114,6 @@ def f():
     return None
 
 
-print('Statement')
-with_if_statement()
-print('Function')
-with_if_function()
-
-
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
     length.
@@ -140,10 +132,12 @@ def hailstone(n):
     i = 1
     while n != 1:
         print(n)
-        i += 1
-        if n % 2:
-            n = 3 * n + 1
+        if n % 2 == 0:
+            n //= 2
+            # 如果这里写'n /= 2'，之后的n都会带一个小数位
         else:
-            n = n // 2
+            n = 3 * n + 1
+        i += 1
     print(1)
     return i
+
