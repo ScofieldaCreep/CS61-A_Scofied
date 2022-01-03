@@ -105,13 +105,11 @@ def c():
 def t():
     print('t()被打印')
     print(42)
-    return 1
+    return None
 
 
 def f():
-    print('f()被打印')
-    print(47)
-    return None
+    return 1
 
 
 def hailstone(n):
