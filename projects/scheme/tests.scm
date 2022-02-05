@@ -2,7 +2,7 @@
 ;;;
 ;;; In order to run only a prefix of these examples, add the line
 ;;;
-;;; (exit)
+;;; 
 ;;;
 ;;; after the last test you wish to run.
 
@@ -16,7 +16,7 @@
 ; expect -7
 (/ 100 0)
 ; expect Error
-(exit)
+
 ; END PROBLEM 0
 
 ;;; These are examples from several sections of "The Structure
@@ -64,9 +64,9 @@
 ; expect 57
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Move the following (exit) line down the file to run additional tests. ;;;
+;;; Move the following  line down the file to run additional tests. ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(exit)
+
 
 
 ;;; 1.1.2
@@ -590,8 +590,6 @@ one-through-four
 ;;; Extra credit ;;;
 ;;;;;;;;;;;;;;;;;;;;
 
-(exit)
-
 ; Tail call optimization tests
 
 (define (sum n total)
@@ -617,7 +615,7 @@ one-through-four
 (sum 1001 0)
 ; expect 501501
 
-(exit)
+
 
 ; macro tests
 
